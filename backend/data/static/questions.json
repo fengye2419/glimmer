@@ -1,0 +1,1131 @@
+[
+  {
+    "id": "q01",
+    "stem": "把3米长的绳子平均分成4段，每段长（）米。",
+    "answer": "3/4",
+    "difficulty": 1,
+    "hints": [
+      "想一想：平均分就是把整体分成几份？",
+      "3米分成4段，每段用分数怎么表示？"
+    ],
+    "solution_steps": [
+      "整体是3米",
+      "平均分成4份",
+      "每份是 3÷4 = 3/4 米"
+    ],
+    "skills": [
+      {
+        "skill_id": "s01",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q02",
+    "stem": "把一个西瓜平均切成8块，吃了3块，吃了这个西瓜的（）。",
+    "answer": "3/8",
+    "difficulty": 1,
+    "hints": [
+      "一共切了几块？",
+      "吃了几块就是几分之几？"
+    ],
+    "solution_steps": [
+      "总共8块",
+      "吃了3块",
+      "吃了 3/8"
+    ],
+    "skills": [
+      {
+        "skill_id": "s01",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q03",
+    "stem": "5/6表示把单位\"1\"平均分成（）份，取了（）份。",
+    "answer": "6,5",
+    "difficulty": 2,
+    "hints": [
+      "看分母是几就是平均分成几份",
+      "看分子是几就是取了几份"
+    ],
+    "solution_steps": [
+      "分母6表示平均分成6份",
+      "分子5表示取了5份"
+    ],
+    "skills": [
+      {
+        "skill_id": "s01",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q04",
+    "stem": "7÷9用分数表示是（）。",
+    "answer": "7/9",
+    "difficulty": 1,
+    "hints": [
+      "除法可以写成分数形式",
+      "被除数做分子，除数做分母"
+    ],
+    "solution_steps": [
+      "7÷9 = 7/9"
+    ],
+    "skills": [
+      {
+        "skill_id": "s02",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q05",
+    "stem": "把4块饼平均分给5个人，每人分得（）块。",
+    "answer": "4/5",
+    "difficulty": 2,
+    "hints": [
+      "平均分用什么运算？",
+      "4除以5写成分数"
+    ],
+    "solution_steps": [
+      "4÷5 = 4/5 块"
+    ],
+    "skills": [
+      {
+        "skill_id": "s02",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q06",
+    "stem": "1÷3 = （）（填分数）。",
+    "answer": "1/3",
+    "difficulty": 1,
+    "hints": [
+      "1除以3写成分数"
+    ],
+    "solution_steps": [
+      "1÷3 = 1/3"
+    ],
+    "skills": [
+      {
+        "skill_id": "s02",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q07",
+    "stem": "在 3/4、5/4、7/7 中，假分数有（）个。",
+    "answer": "2",
+    "difficulty": 2,
+    "hints": [
+      "假分数是分子≥分母的分数",
+      "逐个判断"
+    ],
+    "solution_steps": [
+      "5/4和7/7是假分数",
+      "共2个"
+    ],
+    "skills": [
+      {
+        "skill_id": "s03",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q08",
+    "stem": "5/3是（）分数。",
+    "answer": "假",
+    "difficulty": 1,
+    "hints": [
+      "分子和分母比一比"
+    ],
+    "solution_steps": [
+      "5>3，是假分数"
+    ],
+    "skills": [
+      {
+        "skill_id": "s03",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q09",
+    "stem": "最小的假分数是（）/（）（分母为5）。",
+    "answer": "5/5",
+    "difficulty": 2,
+    "hints": [
+      "假分数分子≥分母",
+      "分母为5时最小是5/5"
+    ],
+    "solution_steps": [
+      "5/5 = 1"
+    ],
+    "skills": [
+      {
+        "skill_id": "s03",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q10",
+    "stem": "把 7/3 化成带分数是（）。",
+    "answer": "2 1/3",
+    "difficulty": 2,
+    "hints": [
+      "7÷3商几余几？",
+      "商做整数部分，余数做分子"
+    ],
+    "solution_steps": [
+      "7÷3=2余1",
+      "2又1/3"
+    ],
+    "skills": [
+      {
+        "skill_id": "s04",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q11",
+    "stem": "2又1/4化成假分数是（）。",
+    "answer": "9/4",
+    "difficulty": 2,
+    "hints": [
+      "整数×分母+分子做新分子",
+      "分母不变"
+    ],
+    "solution_steps": [
+      "2×4+1=9",
+      "9/4"
+    ],
+    "skills": [
+      {
+        "skill_id": "s04",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q12",
+    "stem": "把 11/4 化成带分数。",
+    "answer": "2 3/4",
+    "difficulty": 2,
+    "hints": [
+      "11÷4"
+    ],
+    "solution_steps": [
+      "商2余3",
+      "2又3/4"
+    ],
+    "skills": [
+      {
+        "skill_id": "s04",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q13",
+    "stem": "比较大小：3/7 ○ 5/7，填>、<或=",
+    "answer": "<",
+    "difficulty": 1,
+    "hints": [
+      "分母相同比分子"
+    ],
+    "solution_steps": [
+      "3<5",
+      "3/7 < 5/7"
+    ],
+    "skills": [
+      {
+        "skill_id": "s05",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q14",
+    "stem": "在 2/9、5/9、8/9 中，最大的是（）。",
+    "answer": "8/9",
+    "difficulty": 1,
+    "hints": [
+      "同分母比分子大小"
+    ],
+    "solution_steps": [
+      "8最大"
+    ],
+    "skills": [
+      {
+        "skill_id": "s05",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q15",
+    "stem": "4/5 ○ 1/5，填>、<或=",
+    "answer": ">",
+    "difficulty": 1,
+    "hints": [
+      "同分母比分子"
+    ],
+    "solution_steps": [
+      "4>1"
+    ],
+    "skills": [
+      {
+        "skill_id": "s05",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q16",
+    "stem": "4和6的最小公倍数是（）。",
+    "answer": "12",
+    "difficulty": 2,
+    "hints": [
+      "列举4的倍数和6的倍数",
+      "找最小的公共倍数"
+    ],
+    "solution_steps": [
+      "4:4,8,12...",
+      "6:6,12...",
+      "最小公倍数12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s06",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q17",
+    "stem": "3和5的最小公倍数是（）。",
+    "answer": "15",
+    "difficulty": 2,
+    "hints": [
+      "3和5互质",
+      "最小公倍数=3×5"
+    ],
+    "solution_steps": [
+      "3×5=15"
+    ],
+    "skills": [
+      {
+        "skill_id": "s06",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q18",
+    "stem": "6和8的最小公倍数是（）。",
+    "answer": "24",
+    "difficulty": 3,
+    "hints": [
+      "分解质因数或列举"
+    ],
+    "solution_steps": [
+      "24"
+    ],
+    "skills": [
+      {
+        "skill_id": "s06",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q19",
+    "stem": "1/3和1/4的公分母可以是（）。",
+    "answer": "12",
+    "difficulty": 2,
+    "hints": [
+      "找3和4的最小公倍数"
+    ],
+    "solution_steps": [
+      "最小公倍数12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s07",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q20",
+    "stem": "2/5和3/10的公分母可以是（）。",
+    "answer": "10",
+    "difficulty": 2,
+    "hints": [
+      "5和10的最小公倍数"
+    ],
+    "solution_steps": [
+      "10"
+    ],
+    "skills": [
+      {
+        "skill_id": "s07",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q21",
+    "stem": "1/2和2/7的公分母可以是（）。",
+    "answer": "14",
+    "difficulty": 2,
+    "hints": [
+      "2和7的最小公倍数"
+    ],
+    "solution_steps": [
+      "14"
+    ],
+    "skills": [
+      {
+        "skill_id": "s07",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q22",
+    "stem": "把1/3通分为分母是12的分数：1/3=（）/12",
+    "answer": "4/12",
+    "difficulty": 2,
+    "hints": [
+      "分母3→12乘了4",
+      "分子也要乘4"
+    ],
+    "solution_steps": [
+      "1×4=4",
+      "4/12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s08",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q23",
+    "stem": "2/5=（）/20",
+    "answer": "8/20",
+    "difficulty": 2,
+    "hints": [
+      "5→20乘了4",
+      "2×4=8"
+    ],
+    "solution_steps": [
+      "8/20"
+    ],
+    "skills": [
+      {
+        "skill_id": "s08",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q24",
+    "stem": "3/4=（）/16",
+    "answer": "12/16",
+    "difficulty": 2,
+    "hints": [
+      "4→16乘了4"
+    ],
+    "solution_steps": [
+      "12/16"
+    ],
+    "skills": [
+      {
+        "skill_id": "s08",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q25",
+    "stem": "通分：1/2和1/3，化为同分母后是（）/6和（）/6",
+    "answer": "3,2",
+    "difficulty": 3,
+    "hints": [
+      "公分母是6",
+      "分别扩分"
+    ],
+    "solution_steps": [
+      "1/2=3/6",
+      "1/3=2/6"
+    ],
+    "skills": [
+      {
+        "skill_id": "s09",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q26",
+    "stem": "通分：2/3和3/4，公分母是12，2/3=（）/12",
+    "answer": "8/12",
+    "difficulty": 3,
+    "hints": [
+      "2/3扩分到12"
+    ],
+    "solution_steps": [
+      "8/12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s09",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q27",
+    "stem": "通分：1/4和2/3，公分母是12，2/3=（）/12",
+    "answer": "8/12",
+    "difficulty": 3,
+    "hints": [
+      "2/3=8/12"
+    ],
+    "solution_steps": [
+      "8/12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s09",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q28",
+    "stem": "比较：1/2 ○ 2/5",
+    "answer": ">",
+    "difficulty": 3,
+    "hints": [
+      "先通分再比较",
+      "1/2=5/10, 2/5=4/10"
+    ],
+    "solution_steps": [
+      "5/10 > 4/10"
+    ],
+    "skills": [
+      {
+        "skill_id": "s10",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q29",
+    "stem": "比较：3/4 ○ 5/6",
+    "answer": "<",
+    "difficulty": 3,
+    "hints": [
+      "通分：3/4=9/12, 5/6=10/12"
+    ],
+    "solution_steps": [
+      "9/12 < 10/12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s10",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q30",
+    "stem": "比较：2/3 ○ 3/5",
+    "answer": ">",
+    "difficulty": 3,
+    "hints": [
+      "通分比较"
+    ],
+    "solution_steps": [
+      "10/15 > 9/15"
+    ],
+    "skills": [
+      {
+        "skill_id": "s10",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q31",
+    "stem": "计算：2/7 + 3/7 = （）",
+    "answer": "5/7",
+    "difficulty": 1,
+    "hints": [
+      "同分母加法：分子相加，分母不变"
+    ],
+    "solution_steps": [
+      "2+3=5",
+      "5/7"
+    ],
+    "skills": [
+      {
+        "skill_id": "s11",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q32",
+    "stem": "1/5 + 2/5 = （）",
+    "answer": "3/5",
+    "difficulty": 1,
+    "hints": [
+      "分子相加"
+    ],
+    "solution_steps": [
+      "3/5"
+    ],
+    "skills": [
+      {
+        "skill_id": "s11",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q33",
+    "stem": "3/8 + 1/8 = （）",
+    "answer": "4/8",
+    "difficulty": 1,
+    "hints": [
+      "3+1=4"
+    ],
+    "solution_steps": [
+      "4/8，可约分为1/2"
+    ],
+    "skills": [
+      {
+        "skill_id": "s11",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q34",
+    "stem": "5/6 - 1/6 = （）",
+    "answer": "4/6",
+    "difficulty": 1,
+    "hints": [
+      "同分母减法：分子相减"
+    ],
+    "solution_steps": [
+      "4/6 = 2/3"
+    ],
+    "skills": [
+      {
+        "skill_id": "s12",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q35",
+    "stem": "7/9 - 2/9 = （）",
+    "answer": "5/9",
+    "difficulty": 1,
+    "hints": [
+      "7-2=5"
+    ],
+    "solution_steps": [
+      "5/9"
+    ],
+    "skills": [
+      {
+        "skill_id": "s12",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q36",
+    "stem": "4/5 - 1/5 = （）",
+    "answer": "3/5",
+    "difficulty": 1,
+    "hints": [
+      "4-1=3"
+    ],
+    "solution_steps": [
+      "3/5"
+    ],
+    "skills": [
+      {
+        "skill_id": "s12",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q37",
+    "stem": "1/2 + 1/4 = （）",
+    "answer": "3/4",
+    "difficulty": 3,
+    "hints": [
+      "先通分",
+      "1/2=2/4",
+      "2/4+1/4=3/4"
+    ],
+    "solution_steps": [
+      "通分后相加",
+      "3/4"
+    ],
+    "skills": [
+      {
+        "skill_id": "s13",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q38",
+    "stem": "1/3 + 1/6 = （）",
+    "answer": "3/6",
+    "difficulty": 3,
+    "hints": [
+      "1/3=2/6",
+      "2/6+1/6=3/6=1/2"
+    ],
+    "solution_steps": [
+      "3/6或1/2"
+    ],
+    "skills": [
+      {
+        "skill_id": "s13",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q39",
+    "stem": "2/5 + 1/10 = （）",
+    "answer": "5/10",
+    "difficulty": 3,
+    "hints": [
+      "2/5=4/10",
+      "4/10+1/10=5/10=1/2"
+    ],
+    "solution_steps": [
+      "5/10"
+    ],
+    "skills": [
+      {
+        "skill_id": "s13",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q40",
+    "stem": "1/4 + 2/3 = （）",
+    "answer": "11/12",
+    "difficulty": 4,
+    "hints": [
+      "公分母12",
+      "3/12+8/12"
+    ],
+    "solution_steps": [
+      "11/12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s13",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q41",
+    "stem": "3/4 - 1/2 = （）",
+    "answer": "1/4",
+    "difficulty": 3,
+    "hints": [
+      "1/2=2/4",
+      "3/4-2/4=1/4"
+    ],
+    "solution_steps": [
+      "1/4"
+    ],
+    "skills": [
+      {
+        "skill_id": "s14",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q42",
+    "stem": "5/6 - 1/3 = （）",
+    "answer": "3/6",
+    "difficulty": 3,
+    "hints": [
+      "1/3=2/6",
+      "5/6-2/6=3/6=1/2"
+    ],
+    "solution_steps": [
+      "3/6"
+    ],
+    "skills": [
+      {
+        "skill_id": "s14",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q43",
+    "stem": "7/8 - 1/4 = （）",
+    "answer": "5/8",
+    "difficulty": 3,
+    "hints": [
+      "1/4=2/8",
+      "7/8-2/8=5/8"
+    ],
+    "solution_steps": [
+      "5/8"
+    ],
+    "skills": [
+      {
+        "skill_id": "s14",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q44",
+    "stem": "2/3 - 1/4 = （）",
+    "answer": "5/12",
+    "difficulty": 4,
+    "hints": [
+      "通分：8/12-3/12"
+    ],
+    "solution_steps": [
+      "5/12"
+    ],
+    "skills": [
+      {
+        "skill_id": "s14",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q45",
+    "stem": "把8/12约分。",
+    "answer": "2/3",
+    "difficulty": 2,
+    "hints": [
+      "找分子分母的最大公因数",
+      "8和12的最大公因数是4"
+    ],
+    "solution_steps": [
+      "8÷4=2, 12÷4=3",
+      "2/3"
+    ],
+    "skills": [
+      {
+        "skill_id": "s15",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q46",
+    "stem": "6/9约分后是（）。",
+    "answer": "2/3",
+    "difficulty": 2,
+    "hints": [
+      "6和9都除以3"
+    ],
+    "solution_steps": [
+      "2/3"
+    ],
+    "skills": [
+      {
+        "skill_id": "s15",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q47",
+    "stem": "10/15约分后是（）。",
+    "answer": "2/3",
+    "difficulty": 2,
+    "hints": [
+      "都除以5"
+    ],
+    "solution_steps": [
+      "2/3"
+    ],
+    "skills": [
+      {
+        "skill_id": "s15",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q48",
+    "stem": "2/3 × 3 = （）",
+    "answer": "2",
+    "difficulty": 2,
+    "hints": [
+      "分数乘整数：分子乘整数，分母不变",
+      "然后约分"
+    ],
+    "solution_steps": [
+      "6/3=2"
+    ],
+    "skills": [
+      {
+        "skill_id": "s16",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q49",
+    "stem": "3/4 × 2 = （）",
+    "answer": "3/2",
+    "difficulty": 2,
+    "hints": [
+      "3×2=6",
+      "6/4=3/2"
+    ],
+    "solution_steps": [
+      "3/2或1又1/2"
+    ],
+    "skills": [
+      {
+        "skill_id": "s16",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q50",
+    "stem": "1/5 × 10 = （）",
+    "answer": "2",
+    "difficulty": 2,
+    "hints": [
+      "10/5=2"
+    ],
+    "solution_steps": [
+      "2"
+    ],
+    "skills": [
+      {
+        "skill_id": "s16",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q51",
+    "stem": "4/5 ÷ 2 = （）",
+    "answer": "2/5",
+    "difficulty": 3,
+    "hints": [
+      "除以整数等于乘它的倒数",
+      "或分子除以整数"
+    ],
+    "solution_steps": [
+      "4/5×1/2=2/5"
+    ],
+    "skills": [
+      {
+        "skill_id": "s17",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q52",
+    "stem": "3/4 ÷ 3 = （）",
+    "answer": "1/4",
+    "difficulty": 3,
+    "hints": [
+      "3÷3=1",
+      "1/4"
+    ],
+    "solution_steps": [
+      "1/4"
+    ],
+    "skills": [
+      {
+        "skill_id": "s17",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q53",
+    "stem": "6/7 ÷ 2 = （）",
+    "answer": "3/7",
+    "difficulty": 3,
+    "hints": [
+      "6÷2=3"
+    ],
+    "solution_steps": [
+      "3/7"
+    ],
+    "skills": [
+      {
+        "skill_id": "s17",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q54",
+    "stem": "小明吃了蛋糕的2/5，小红吃了1/5，两人一共吃了蛋糕的（）。",
+    "answer": "3/5",
+    "difficulty": 3,
+    "hints": [
+      "一共吃了多少？用加法",
+      "同分母直接加"
+    ],
+    "solution_steps": [
+      "2/5+1/5=3/5"
+    ],
+    "skills": [
+      {
+        "skill_id": "s18",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q55",
+    "stem": "一本书120页，小军看了1/4，看了（）页。",
+    "answer": "30",
+    "difficulty": 3,
+    "hints": [
+      "1/4表示把120平均分成4份取1份",
+      "120÷4"
+    ],
+    "solution_steps": [
+      "30页"
+    ],
+    "skills": [
+      {
+        "skill_id": "s18",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q56",
+    "stem": "一桶油用去2/5，还剩（）/（）。",
+    "answer": "3/5",
+    "difficulty": 3,
+    "hints": [
+      "整体是1",
+      "用去2/5，剩1-2/5"
+    ],
+    "solution_steps": [
+      "3/5"
+    ],
+    "skills": [
+      {
+        "skill_id": "s18",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q57",
+    "stem": "一根绳子长3/4米，用去1/4米，还剩（）米。",
+    "answer": "1/2",
+    "difficulty": 4,
+    "hints": [
+      "同分母减法",
+      "3/4-1/4=2/4=1/2"
+    ],
+    "solution_steps": [
+      "1/2米"
+    ],
+    "skills": [
+      {
+        "skill_id": "s18",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q58",
+    "stem": "把5个苹果平均分给8个人，每人分得（）个。",
+    "answer": "5/8",
+    "difficulty": 2,
+    "hints": [
+      "5÷8"
+    ],
+    "solution_steps": [
+      "5/8个"
+    ],
+    "skills": [
+      {
+        "skill_id": "s02",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q59",
+    "stem": "9/10是（）分数。",
+    "answer": "真",
+    "difficulty": 1,
+    "hints": [
+      "分子<分母"
+    ],
+    "solution_steps": [
+      "真分数"
+    ],
+    "skills": [
+      {
+        "skill_id": "s03",
+        "weight": 1.0
+      }
+    ]
+  },
+  {
+    "id": "q60",
+    "stem": "3/8 + 2/8 = （）",
+    "answer": "5/8",
+    "difficulty": 1,
+    "hints": [
+      "分子相加"
+    ],
+    "solution_steps": [
+      "5/8"
+    ],
+    "skills": [
+      {
+        "skill_id": "s11",
+        "weight": 1.0
+      }
+    ]
+  }
+]

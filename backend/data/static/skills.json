@@ -1,0 +1,20 @@
+[
+  {"id": "s01", "name": "认识分数", "grade": 4, "description": "理解部分与整体的关系，读写分数", "prerequisites": []},
+  {"id": "s02", "name": "分数与除法", "grade": 4, "description": "理解分数与除法的关系", "prerequisites": ["s01"]},
+  {"id": "s03", "name": "真分数与假分数", "grade": 4, "description": "区分真分数、假分数", "prerequisites": ["s02"]},
+  {"id": "s04", "name": "带分数互化", "grade": 4, "description": "带分数与假分数互化", "prerequisites": ["s03"]},
+  {"id": "s05", "name": "同分母比较", "grade": 4, "description": "同分母分数大小比较", "prerequisites": ["s01"]},
+  {"id": "s06", "name": "最小公倍数", "grade": 5, "description": "求两个数的最小公倍数", "prerequisites": ["s05"]},
+  {"id": "s07", "name": "找公分母", "grade": 5, "description": "为异分母分数找公分母", "prerequisites": ["s06"]},
+  {"id": "s08", "name": "分子扩分", "grade": 5, "description": "将分数化为同分母（扩分）", "prerequisites": ["s07"]},
+  {"id": "s09", "name": "通分", "grade": 5, "description": "综合运用通分技能", "prerequisites": ["s08"]},
+  {"id": "s10", "name": "异分母比较", "grade": 5, "description": "通分后比较异分母分数大小", "prerequisites": ["s09"]},
+  {"id": "s11", "name": "同分母加法", "grade": 4, "description": "同分母分数加法", "prerequisites": ["s05"]},
+  {"id": "s12", "name": "同分母减法", "grade": 4, "description": "同分母分数减法", "prerequisites": ["s11"]},
+  {"id": "s13", "name": "异分母加法", "grade": 5, "description": "异分母分数加法", "prerequisites": ["s09", "s11"]},
+  {"id": "s14", "name": "异分母减法", "grade": 5, "description": "异分母分数减法", "prerequisites": ["s09", "s12"]},
+  {"id": "s15", "name": "约分", "grade": 5, "description": "将分数化为最简分数", "prerequisites": ["s03"]},
+  {"id": "s16", "name": "分数乘整数", "grade": 5, "description": "分数与整数相乘", "prerequisites": ["s15"]},
+  {"id": "s17", "name": "分数除以整数", "grade": 5, "description": "分数除以整数", "prerequisites": ["s16"]},
+  {"id": "s18", "name": "分数应用题", "grade": 5, "description": "运用分数知识解决实际问题", "prerequisites": ["s13", "s14"]}
+]
