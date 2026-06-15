@@ -44,7 +44,7 @@ export default function DiagnosePage() {
 
   useEffect(() => {
     if (!studentId) {
-      nav('/')
+      nav('/student/setup')
       return
     }
     load()
@@ -100,8 +100,8 @@ export default function DiagnosePage() {
           </div>
         )}
         <div className="btn-row">
-          <button className="btn primary" onClick={() => nav('/dashboard')}>查看仪表盘</button>
-          <button className="btn" onClick={() => nav('/practice')}>开始针对性练习</button>
+          <button className="btn primary" onClick={() => nav('/student/dashboard')}>查看仪表盘</button>
+          <button className="btn" onClick={() => nav('/student/practice')}>开始针对性练习</button>
         </div>
       </div>
     )
@@ -136,7 +136,7 @@ export default function DiagnosePage() {
               {index + 1 >= questions.length ? '查看诊断报告' : '下一题'}
             </button>
             {!result.correct && (
-              <Link to={`/tutor/${currentQ.id}`} className="btn">AI 引导讲题</Link>
+              <Link to={`/student/tutor/${currentQ.id}`} className="btn">AI 引导讲题</Link>
             )}
           </div>
         </>

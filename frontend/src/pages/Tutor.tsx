@@ -25,7 +25,7 @@ export default function TutorPage() {
 
   useEffect(() => {
     if (!studentId || !questionId) {
-      nav('/')
+      nav('/student/setup')
       return
     }
     setError('')
@@ -99,7 +99,7 @@ export default function TutorPage() {
       <header className="page-header">
         <div>
           <div className="breadcrumb">
-            <Link to="/practice">练习</Link>
+            <Link to="/student/practice">练习</Link>
             <span> › </span>
             <span>AI 讲题</span>
           </div>
@@ -137,8 +137,8 @@ export default function TutorPage() {
 
       <ChatInput disabled={streaming} onSend={(t) => send(t)} onHint={() => send('')} />
       <div className="btn-row">
-        <Link to="/practice" className="btn ghost">返回练习</Link>
-        <Link to="/dashboard" className="btn ghost">回仪表盘</Link>
+        <Link to="/student/practice" className="btn ghost">返回练习</Link>
+        <Link to="/student/dashboard" className="btn ghost">回仪表盘</Link>
       </div>
       <p className="muted small">本页面不提供「查看答案」，请通过思考得出结果</p>
     </div>
