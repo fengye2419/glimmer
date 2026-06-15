@@ -1,8 +1,6 @@
 package tutor
 
 import (
-	"bufio"
-	"bytes"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -12,6 +10,7 @@ import (
 
 	"github.com/google/uuid"
 
+	"glimmer/internal/llm"
 	"glimmer/internal/model"
 	"glimmer/internal/store"
 )
@@ -64,79 +63,22 @@ func stageGuidance(stage string) string {
 }
 
 type Engine struct {
-	store       store.Store
-	ollamaURL   string
-	ollamaModel string
-	httpClient  *http.Client
+	store  store.Store
+	llm    *llm.Client
 	// fewShot：可选的 SocraticMATH few-shot 示例文本（仅 debug 时由环境变量启用）。
 	fewShot string
 }
 
-type ollamaTagsResp struct {
-	Models []struct {
-		Name string `json:"name"`
-	} `json:"models"`
-}
-
-type ollamaChatResp struct {
-	Message struct {
-		Role     string `json:"role"`
-		Content  string `json:"content"`
-		Thinking string `json:"thinking"`
-	} `json:"message"`
-	Error string `json:"error"`
-	Done  bool   `json:"done"`
-}
-
-func NewEngine(s store.Store, ollamaURL, model string) *Engine {
-	if ollamaURL == "" {
-		ollamaURL = "http://localhost:11434"
-	}
+func NewEngine(s store.Store, llmClient *llm.Client) *Engine {
 	return &Engine{
-		store:       s,
-		ollamaURL:   ollamaURL,
-		ollamaModel: model,
-		httpClient:  &http.Client{Timeout: 180 * time.Second},
-		fewShot:     loadFewShotFromEnv(),
+		store:   s,
+		llm:     llmClient,
+		fewShot: loadFewShotFromEnv(),
 	}
-}
-
-func (e *Engine) listModels() []string {
-	resp, err := e.httpClient.Get(e.ollamaURL + "/api/tags")
-	if err != nil {
-		return nil
-	}
-	defer resp.Body.Close()
-	var tags ollamaTagsResp
-	if json.NewDecoder(resp.Body).Decode(&tags) != nil {
-		return nil
-	}
-	var names []string
-	for _, m := range tags.Models {
-		names = append(names, m.Name)
-	}
-	return names
-}
-
-// resolveModel picks configured model, or falls back to first locally available one.
-func (e *Engine) resolveModel() (string, error) {
-	models := e.listModels()
-	if len(models) == 0 {
-		return "", fmt.Errorf("ollama 无可用模型，请先执行 ollama pull")
-	}
-	if e.ollamaModel != "" {
-		for _, name := range models {
-			if name == e.ollamaModel {
-				return name, nil
-			}
-		}
-	}
-	return models[0], nil
 }
 
 func (e *Engine) Healthy() bool {
-	_, err := e.resolveModel()
-	return err == nil
+	return e.llm.Healthy()
 }
 
 func (e *Engine) CreateSession(studentID, questionID string) (*model.TutorSession, error) {
@@ -210,68 +152,25 @@ func (e *Engine) ChatStream(sessionID, userMessage string, weakSkills []string, 
 	}
 
 	stage := stageFor(sess)
-	modelName, err := e.resolveModel()
+	systemPrompt := e.buildSystemPrompt(q, weakSkills, stage)
+	messages := e.buildMessages(systemPrompt, sess.Messages)
+
+	var streamed bool
+	reply, err := e.llm.ChatStream(messages, func(text string) error {
+		streamed = true
+		fmt.Fprintf(w, "data: %s\n\n", jsonEscape(text))
+		if f, ok := w.(http.Flusher); ok {
+			f.Flush()
+		}
+		return nil
+	})
 	if err != nil {
 		return e.writeFallback(w, sess, q, err.Error())
-	}
-
-	systemPrompt := e.buildSystemPrompt(q, weakSkills, stage)
-	var messages []map[string]string
-	messages = append(messages, map[string]string{"role": "system", "content": systemPrompt})
-	for _, m := range sess.Messages {
-		messages = append(messages, map[string]string{"role": m.Role, "content": m.Content})
-	}
-
-	body := map[string]any{
-		"model":    modelName,
-		"messages": messages,
-		"stream":   true,
-		"think":    false,
-	}
-	payload, _ := json.Marshal(body)
-	resp, err := e.httpClient.Post(e.ollamaURL+"/api/chat", "application/json", bytes.NewReader(payload))
-	if err != nil {
-		return e.writeFallback(w, sess, q, "连接 Ollama 失败: "+err.Error())
-	}
-	defer resp.Body.Close()
-
-	if resp.StatusCode != http.StatusOK {
-		return e.writeFallback(w, sess, q, fmt.Sprintf("Ollama 返回 %d", resp.StatusCode))
-	}
-
-	var full strings.Builder
-	var lastChunk ollamaChatResp
-	scanner := bufio.NewScanner(resp.Body)
-	for scanner.Scan() {
-		line := scanner.Bytes()
-		var chunk ollamaChatResp
-		if json.Unmarshal(line, &chunk) != nil {
-			continue
-		}
-		if chunk.Error != "" {
-			return e.writeFallback(w, sess, q, chunk.Error)
-		}
-		lastChunk = chunk
-		text := chunk.Message.Content
-		if text != "" {
-			full.WriteString(text)
-			fmt.Fprintf(w, "data: %s\n\n", jsonEscape(text))
-			if f, ok := w.(http.Flusher); ok {
-				f.Flush()
-			}
-		}
-	}
-	if err := scanner.Err(); err != nil && full.Len() == 0 {
-		return e.writeFallback(w, sess, q, "读取 Ollama 流失败: "+err.Error())
-	}
-	reply := full.String()
-	if reply == "" {
-		reply = lastChunk.Message.Content
 	}
 	if reply == "" {
 		reply = e.fallbackHint(q, hintRound(sess))
 	}
-	if full.Len() == 0 {
+	if !streamed {
 		fmt.Fprintf(w, "data: %s\n\n", jsonEscape(reply))
 	}
 	fmt.Fprint(w, "data: [DONE]\n\n")
@@ -308,42 +207,22 @@ func hintRound(sess *model.TutorSession) int {
 }
 
 func (e *Engine) generateReply(sess *model.TutorSession, q *model.Question, weakSkills []string, stage string) (string, bool, error) {
-	modelName, err := e.resolveModel()
-	if err != nil {
+	systemPrompt := e.buildSystemPrompt(q, weakSkills, stage)
+	messages := e.buildMessages(systemPrompt, sess.Messages)
+
+	reply, err := e.llm.Chat(messages)
+	if err != nil || reply == "" {
 		return e.fallbackHint(q, hintRound(sess)), true, nil
 	}
+	return reply, false, nil
+}
 
-	systemPrompt := e.buildSystemPrompt(q, weakSkills, stage)
-	var messages []map[string]string
-	messages = append(messages, map[string]string{"role": "system", "content": systemPrompt})
-	for _, m := range sess.Messages {
+func (e *Engine) buildMessages(systemPrompt string, history []model.TutorMessage) []map[string]string {
+	messages := []map[string]string{{"role": "system", "content": systemPrompt}}
+	for _, m := range history {
 		messages = append(messages, map[string]string{"role": m.Role, "content": m.Content})
 	}
-
-	body := map[string]any{
-		"model":    modelName,
-		"messages": messages,
-		"stream":   false,
-		"think":    false,
-	}
-	payload, _ := json.Marshal(body)
-	resp, err := e.httpClient.Post(e.ollamaURL+"/api/chat", "application/json", bytes.NewReader(payload))
-	if err != nil {
-		return e.fallbackHint(q, hintRound(sess)), true, nil
-	}
-	defer resp.Body.Close()
-
-	var result ollamaChatResp
-	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		return e.fallbackHint(q, hintRound(sess)), true, nil
-	}
-	if result.Error != "" {
-		return e.fallbackHint(q, hintRound(sess)), true, nil
-	}
-	if result.Message.Content == "" {
-		return e.fallbackHint(q, hintRound(sess)), true, nil
-	}
-	return result.Message.Content, false, nil
+	return messages
 }
 
 func (e *Engine) buildSystemPrompt(q *model.Question, weakSkills []string, stage string) string {

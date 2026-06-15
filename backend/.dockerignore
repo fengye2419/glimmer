@@ -1,0 +1,6 @@
+data/runtime/*
+!data/runtime/.gitkeep
+data/socraticmath/
+*.out
+server
+bin/

@@ -9,6 +9,7 @@ import (
 	"github.com/google/uuid"
 
 	"glimmer/internal/diagnose"
+	"glimmer/internal/llm"
 	"glimmer/internal/model"
 	"glimmer/internal/practice"
 	"glimmer/internal/service"
@@ -31,14 +32,14 @@ func nonNilSlice[T any](s []T) []T {
 	return s
 }
 
-func NewHandler(s store.Store, ollamaURL, ollamaModel string) *Handler {
+func NewHandler(s store.Store, llmClient *llm.Client) *Handler {
 	m := service.NewMasteryService(s)
 	return &Handler{
 		store:    s,
 		mastery:  m,
 		diagnose: diagnose.NewEngine(s),
 		practice: practice.NewEngine(s, m),
-		tutor:    tutor.NewEngine(s, ollamaURL, ollamaModel),
+		tutor:    tutor.NewEngine(s, llmClient),
 	}
 }
 
