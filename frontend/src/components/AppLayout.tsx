@@ -13,7 +13,8 @@ export default function AppLayout() {
   const studentName = localStorage.getItem(STUDENT_NAME_KEY) || ''
   const links = roleNavLinks(user.role)
   const home = roleHome(user.role)
-  const setupPath = user.role === 'parent' ? '/parent/children' : '/student/setup'
+  const isLearnerAccount = user.role === 'parent'
+  const setupPath = '/parent/children'
 
   const handleLogout = () => {
     logout()
@@ -32,13 +33,13 @@ export default function AppLayout() {
         </Link>
 
         <div className="app-topbar-right">
-          {(user.role === 'parent' || user.role === 'student') && studentName && (
+          {isLearnerAccount && studentName && (
             <span className="nav-student">
               <span className="avatar">{[...studentName][0]}</span>
               {studentName}
             </span>
           )}
-          {(user.role === 'parent' || user.role === 'student') && hasStudent && (
+          {isLearnerAccount && hasStudent && (
             <Link to={setupPath} className="btn ghost sm">切换档案</Link>
           )}
           <div className="app-user-menu">

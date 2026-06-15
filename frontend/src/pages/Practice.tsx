@@ -40,7 +40,7 @@ export default function PracticePage() {
 
   useEffect(() => {
     if (!studentId) {
-      nav('/student/setup')
+      nav('/parent/children')
       return
     }
     loadNext()
@@ -109,9 +109,9 @@ export default function PracticePage() {
           <div className="btn-row">
             <button ref={nextBtnRef} className="btn primary" onClick={next}>下一题</button>
             {!result.correct && (
-              <Link to={`/student/tutor/${question.id}`} className="btn">AI 引导讲题</Link>
+              <Link to={`/parent/tutor/${question.id}`} className="btn">AI 引导讲题</Link>
             )}
-            <Link to="/student/dashboard" className="btn ghost">回仪表盘</Link>
+            <Link to="/parent/dashboard" className="btn ghost">回仪表盘</Link>
           </div>
         </>
       )}

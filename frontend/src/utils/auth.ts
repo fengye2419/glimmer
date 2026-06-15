@@ -24,13 +24,6 @@ export const DEMO_ACCOUNTS = [
     role: 'parent' as const,
   },
   {
-    id: 'demo-student-001',
-    email: 'student@glimmer.app',
-    name: '小明',
-    password: 'demo123456',
-    role: 'student' as const,
-  },
-  {
     id: 'demo-teacher-001',
     email: 'teacher@glimmer.app',
     name: '李老师',
@@ -78,7 +71,6 @@ function toAuthUser(user: StoredUser): AuthUser {
 }
 
 function inferRoleFromEmail(email: string): UserRole {
-  if (email.startsWith('student@')) return 'student'
   if (email.startsWith('teacher@')) return 'teacher'
   if (email.startsWith('org@')) return 'institution'
   if (email.startsWith('admin@')) return 'platform'
@@ -147,7 +139,6 @@ export function logout() {
 
 export function postLoginPath(role: UserRole) {
   if (role === 'parent') return '/parent/children'
-  if (role === 'student') return '/student/setup'
   return roleHome(role)
 }
 

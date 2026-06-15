@@ -44,41 +44,44 @@ export default function ParentHome() {
     <div className="page portal-page">
       <PortalHeader
         title={`你好，${user?.name || '家长'}`}
-        subtitle="家长端 · 管理孩子学习档案，追踪成长进度"
-        actions={<Link to="/parent/children" className="btn primary">管理孩子档案</Link>}
+        subtitle="学习中心 · 在本设备上管理学习者档案，陪伴诊断、练习与 AI 讲题"
+        actions={<Link to="/parent/children" className="btn primary">选择 / 新建学习者</Link>}
       />
 
       <StatGrid items={[
-        { label: '孩子档案', value: String(students.length), hint: '已创建' },
+        { label: '学习者档案', value: String(students.length), hint: '已创建' },
         { label: '累计答题', value: summary ? String(summary.attempts) : '—' },
         { label: '平均掌握度', value: summary ? `${summary.mastery}%` : '—' },
       ]} />
 
       <FeatureList items={[
         {
-          title: '孩子档案管理',
-          desc: '创建或切换孩子的学习档案，支持全龄段学习者。',
+          title: '学习档案管理',
+          desc: '创建或切换学习者档案，一个账号可管理孩子或自己，支持全龄段。',
           to: '/parent/children',
           action: '管理档案',
         },
         {
-          title: '学情报告',
+          title: '学情仪表盘',
           desc: '查看诊断结果、薄弱技能与掌握度趋势，获取 AI 学习建议。',
-          to: '/parent/reports',
-          action: '查看报告',
+          to: '/parent/dashboard',
+          action: '查看学情',
         },
         {
-          title: '学习任务',
-          desc: '为孩子安排诊断测评或练习（即将支持家长布置任务）。',
+          title: '诊断 / 练习',
+          desc: '先做 12 题诊断定位漏洞，再按薄弱点自适应练习并随时 AI 讲题。',
+          to: '/parent/diagnose',
+          action: '开始诊断',
         },
       ]} />
 
       {students.length > 0 && (
         <section className="card">
-          <h3>我的孩子</h3>
+          <h3>学习者档案</h3>
+          <p className="muted small">点击进入对应学习者的学情仪表盘</p>
           <div className="student-list">
             {students.map((s) => (
-              <Link key={s.id} to="/parent/reports" className="student-btn student-btn-link" onClick={() => localStorage.setItem(STUDENT_KEY, s.id)}>
+              <Link key={s.id} to="/parent/dashboard" className="student-btn student-btn-link" onClick={() => localStorage.setItem(STUDENT_KEY, s.id)}>
                 <span className="student-name">{s.name}</span>
                 <span className="student-grade">{gradeLabel(s.grade)}</span>
               </Link>

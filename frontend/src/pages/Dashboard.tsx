@@ -30,14 +30,14 @@ export default function DashboardPage() {
 
   useEffect(() => {
     if (!studentId) {
-      nav('/student/setup')
+      nav('/parent/children')
       return
     }
     load()
   }, [studentId, nav, load])
 
   if (loading) return <div className="loading">加载中…</div>
-  if (error) return <ErrorState message={error} onRetry={() => (studentId ? load() : nav('/student/setup'))} />
+  if (error) return <ErrorState message={error} onRetry={() => (studentId ? load() : nav('/parent/children'))} />
   if (!data) return null
 
   const needsOnboarding = !data.stats.has_diagnosed
@@ -58,7 +58,7 @@ export default function DashboardPage() {
         <section className="card hero-cta">
           <h2>👋 欢迎开始学习了</h2>
           <p>先完成 12 题诊断测评，系统才能精准定位你的知识漏洞。</p>
-          <Link to="/student/diagnose" className="btn primary">开始诊断测评</Link>
+          <Link to="/parent/diagnose" className="btn primary">开始诊断测评</Link>
         </section>
       ) : (
         <div className="stats-row">
@@ -78,12 +78,12 @@ export default function DashboardPage() {
       )}
 
       <div className="action-grid">
-        <Link to="/student/diagnose" className="action-card">
+        <Link to="/parent/diagnose" className="action-card">
           <span className="action-icon">📋</span>
           <span>诊断测评</span>
           <small>12 题摸底，定位知识漏洞</small>
         </Link>
-        <Link to="/student/practice" className="action-card">
+        <Link to="/parent/practice" className="action-card">
           <span className="action-icon">✏️</span>
           <span>自适应练习</span>
           <small>按薄弱点智能推题</small>
@@ -97,7 +97,7 @@ export default function DashboardPage() {
             {data.due_reviews.map((d) => (
               <li key={d.skill_id}>
                 <span>{d.skill_name}（第 {d.stage + 1} 轮复习）</span>
-                <Link to="/student/practice" className="btn sm">去复习</Link>
+                <Link to="/parent/practice" className="btn sm">去复习</Link>
               </li>
             ))}
           </ul>
@@ -126,7 +126,7 @@ export default function DashboardPage() {
                   <div className="bar-fill weak" style={{ width: `${w.p_known * 100}%` }} />
                 </div>
                 <span className="weak-pct">{Math.round(w.p_known * 100)}%</span>
-                <Link to="/student/practice" className="btn sm">练习</Link>
+                <Link to="/parent/practice" className="btn sm">练习</Link>
               </div>
             ))}
           </div>

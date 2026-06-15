@@ -15,7 +15,6 @@ export default function StudentSetup() {
   const [error, setError] = useState('')
   const nav = useNavigate()
   const user = getCurrentUser()
-  const isParent = user?.role === 'parent'
 
   const load = useCallback(() => {
     setLoading(true)
@@ -30,14 +29,9 @@ export default function StudentSetup() {
     load()
   }, [load])
 
-  const afterSelect = () => {
-    if (isParent) nav('/parent/reports')
-    else nav('/student/dashboard')
-  }
-
   const select = (id: string, studentName: string) => {
     rememberStudent(id, studentName)
-    afterSelect()
+    nav('/parent/dashboard')
   }
 
   const create = async () => {
@@ -47,8 +41,7 @@ export default function StudentSetup() {
     try {
       const r = await createStudent(name.trim(), grade)
       rememberStudent(r.data.id, r.data.name)
-      if (isParent) nav('/parent/reports')
-      else nav('/student/diagnose')
+      nav('/parent/diagnose')
     } catch (e) {
       setError(apiErrorMessage(e, '创建学习档案失败'))
     } finally {
@@ -59,13 +52,13 @@ export default function StudentSetup() {
   return (
     <div className="page setup">
       <header className="setup-header">
-        <h1>{isParent ? '管理孩子档案' : '选择学习档案'}</h1>
+        <h1>学习档案</h1>
         <p className="muted">
-          {user ? `${user.name}，${isParent ? '请为孩子创建或选择档案' : '请选择你的学习档案'}` : '请选择或创建学习档案'}
+          {user ? `${user.name}，在本设备上选择或新建一位学习者档案` : '请选择或创建学习档案'}
         </p>
-        <p className="muted small">当前体验内容：小学数学（分数单元）</p>
-        <button type="button" className="btn ghost sm setup-back" onClick={() => nav(roleHome(user?.role || 'student'))}>
-          返回{isParent ? '家长' : '学习'}首页
+        <p className="muted small">同一账号可管理多位学习者（孩子 / 自己），当前体验内容：小学数学（分数单元）</p>
+        <button type="button" className="btn ghost sm setup-back" onClick={() => nav(roleHome(user?.role || 'parent'))}>
+          返回学习中心
         </button>
       </header>
 
@@ -86,12 +79,12 @@ export default function StudentSetup() {
       </section>
 
       <section className="card">
-        <h2>{isParent ? '新建孩子档案' : '新建学习档案'}</h2>
+        <h2>新建学习档案</h2>
         <div className="form-row">
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder={isParent ? '孩子姓名' : '学习者姓名'}
+            placeholder="学习者姓名"
             aria-label="学习者姓名"
           />
           <select value={grade} onChange={(e) => setGrade(Number(e.target.value))} aria-label="学段">
@@ -100,7 +93,7 @@ export default function StudentSetup() {
             ))}
           </select>
           <button className="btn primary" onClick={create} disabled={!name.trim() || creating}>
-            {creating ? '创建中…' : isParent ? '创建档案' : '创建并开始诊断'}
+            {creating ? '创建中…' : '创建并开始诊断'}
           </button>
         </div>
       </section>

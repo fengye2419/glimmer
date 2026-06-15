@@ -8,7 +8,6 @@ import Diagnose from './pages/Diagnose'
 import Practice from './pages/Practice'
 import Tutor from './pages/Tutor'
 import ParentHome from './pages/parent/ParentHome'
-import ParentReports from './pages/parent/ParentReports'
 import TeacherHome from './pages/teacher/TeacherHome'
 import TeacherClasses from './pages/teacher/TeacherClasses'
 import TeacherStudents from './pages/teacher/TeacherStudents'
@@ -62,16 +61,10 @@ function AppRoutes() {
           <Route element={<RequireRole roles={['parent']} />}>
             <Route path="/parent" element={<ParentHome />} />
             <Route path="/parent/children" element={<StudentSetup />} />
-            <Route path="/parent/reports" element={<ParentReports />} />
-          </Route>
-
-          <Route element={<RequireRole roles={['student']} />}>
-            <Route path="/student/setup" element={<StudentSetup />} />
-            <Route path="/student/dashboard" element={<Dashboard />} />
-            <Route path="/student/diagnose" element={<Diagnose />} />
-            <Route path="/student/practice" element={<Practice />} />
-            <Route path="/student/tutor/:questionId" element={<Tutor />} />
-            <Route path="/student" element={<Dashboard />} />
+            <Route path="/parent/dashboard" element={<Dashboard />} />
+            <Route path="/parent/diagnose" element={<Diagnose />} />
+            <Route path="/parent/practice" element={<Practice />} />
+            <Route path="/parent/tutor/:questionId" element={<Tutor />} />
           </Route>
 
           <Route element={<RequireRole roles={['teacher']} />}>

@@ -1,4 +1,4 @@
-export type UserRole = 'parent' | 'student' | 'teacher' | 'institution' | 'platform'
+export type UserRole = 'parent' | 'teacher' | 'institution' | 'platform'
 
 export interface RoleMeta {
   key: UserRole
@@ -10,15 +10,9 @@ export interface RoleMeta {
 export const ROLES: RoleMeta[] = [
   {
     key: 'parent',
-    label: '家长',
-    description: '管理孩子学习档案，查看进度报告与学习建议',
+    label: '家长 / 学员',
+    description: '在家庭设备上管理学习档案，陪伴孩子诊断、练习与 AI 讲题',
     home: '/parent',
-  },
-  {
-    key: 'student',
-    label: '学生',
-    description: '参与诊断、AI 讲题与自适应练习',
-    home: '/student',
   },
   {
     key: 'teacher',
@@ -60,15 +54,11 @@ export function roleNavLinks(role: UserRole): NavItem[] {
   switch (role) {
     case 'parent':
       return [
-        { to: '/parent', label: '首页', icon: '🏠' },
-        { to: '/parent/children', label: '孩子档案', icon: '👧' },
-        { to: '/parent/reports', label: '学情报告', icon: '📊' },
-      ]
-    case 'student':
-      return [
-        { to: '/student', label: '学习中心', icon: '📚' },
-        { to: '/student/diagnose', label: '诊断测评', icon: '📋' },
-        { to: '/student/practice', label: '自适应练习', icon: '✏️' },
+        { to: '/parent', label: '学习中心', icon: '🏠' },
+        { to: '/parent/children', label: '学习档案', icon: '👧' },
+        { to: '/parent/dashboard', label: '学情仪表盘', icon: '📊' },
+        { to: '/parent/diagnose', label: '诊断测评', icon: '📋' },
+        { to: '/parent/practice', label: '自适应练习', icon: '✏️' },
       ]
     case 'teacher':
       return [
